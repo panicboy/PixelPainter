@@ -4,17 +4,29 @@ var colorArr = ['FF0000','FF6666','FF9999','FFCCCC',
 ,'FFFFCC','00CC00','33FF33','99FF99','0000CC','4C0099'
 ,'7F00FF','9933FF','CC99FF','FF00FF','000000'
 ,'404040','808080','C0C0C0','FFFFFF'];
+
+//define document parts
+
+//body
 var body = document.body;
+
+//PixelPainter element
 var masterDiv = document.createElement('div');
 masterDiv.id = 'pp-canvas';
 body.appendChild(masterDiv);
+
+//palette box
 var colorPalette = document.createElement('div');
 colorPalette.id = 'paletteDiv';
 masterDiv.appendChild(colorPalette);
 var canvas = document.createElement('div');
+
+//canvas
 canvas.id = 'canvas';
 masterDiv.appendChild(canvas);
 var eraseDiv = document.createElement('div');
+
+//buttons
 eraseDiv.id = 'eraseDiv';
 colorPalette.appendChild(eraseDiv);
 var clearDiv = document.createElement('div');
@@ -85,14 +97,14 @@ colorPalette.appendChild(clearDiv);
 colorPalette.appendChild(eraseDiv);
 
 eraseDiv.addEventListener('click', function(){
-  selectedColor = 'white';
+  selectedColor = 'transparent';
 })
 
 clearDiv.addEventListener('click',function(){
   var allPixels = document.getElementsByClassName('pixels');
   // document.getElementsByClassName('pixels').setAttribute(backgroundColor, 'white');
   for(var i = 0; i < allPixels.length; i++){
-    allPixels[i].style.backgroundColor = 'white';
+    allPixels[i].style.backgroundColor = 'transparent';
     holdDown = false;
   }
 })
