@@ -1,7 +1,7 @@
-#pp-canvas{
+#canvas{
   display: inline-block;
   position: relative;
-  left: 50%;
+  left: 20%;
   right: 50%;
 
 }
@@ -23,7 +23,7 @@
   display: inline-block;
 }
 
-#masterDiv{
+#pp-canvas{
   display: inline-block;
 }
 
@@ -45,8 +45,4 @@
   border-radius: 5px;
   border-width: 2px;
   text-align: center;
-}
-
-h1{
-  margin: auto;
 }
