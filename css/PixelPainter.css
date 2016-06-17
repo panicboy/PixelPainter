@@ -2,22 +2,25 @@
   display: inline-block;
   position: relative;
   left: 50%;
+  right: 50%;
 
 }
 
 .pixels{
-  border-color: black;
+  border-color: #c0c0c0;
   border-width: 1px;
   border-style: solid;
   width: 20px;
   display: inline-block;
+  height:20px;
 }
 
 .colors{
   border-style: solid;
   border-width: 2px;
   width: 20px;
-  height: 10px;
+  height: 20px;
+  display: inline-block;
 }
 
 #masterDiv{
@@ -26,16 +29,24 @@
 
 #paletteDiv{
   display: inline-block;
+  vertical-align: top;
+  margin-left: 20px;
 }
 
 #clearDiv{
   border-style: solid;
   border-radius: 5px;
   border-width: 2px;
+  text-align: center;
 }
 
 #eraseDiv{
   border-style: solid;
   border-radius: 5px;
   border-width: 2px;
+  text-align: center;
+}
+
+h1{
+  margin: auto;
 }
