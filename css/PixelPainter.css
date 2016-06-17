@@ -1,10 +1,9 @@
 #canvas{
   display: inline-block;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  top-margin: 20%;
-
+/*  left: 50%;
+  right: 50%;*/
+  margin-left: 15%;
+  background-color: white;
 }
 
 .pixels{
@@ -13,6 +12,7 @@
   border-style: solid;
   /* width: 20px; */
   display: inline-block;
+
   /* height:20px; */
 }
 
@@ -27,29 +27,30 @@
 #pp-canvas{
   display: inline-block;
   top-margin: 30px;
+  width: 100%;
 }
 
 #paletteDiv{
   display: inline-block;
   vertical-align: top;
   margin-left: 20px;
-}
-
-#clearDiv{
-  border-style: solid;
-  border-radius: 5px;
-  border-width: 2px;
-  text-align: center;
-}
-
-#eraseDiv{
-  border-style: solid;
-  border-radius: 5px;
-  border-width: 2px;
-  text-align: center;
+  float: left;
 }
 
 h1{
   text-align: center;
   margin-bottom: 40px;
+}
+
+.buttons{
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  text-align: center;
+  margin-top: 5px;
+  background-color: white;
+}
+
+.buttons:hover{
+  background-color: rgb(153, 204, 255);
 }
