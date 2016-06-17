@@ -1,8 +1,9 @@
-#pp-canvas{
+#canvas{
   display: inline-block;
   position: relative;
   left: 50%;
   right: 50%;
+  top-margin: 20%;
 
 }
 
@@ -23,8 +24,9 @@
   display: inline-block;
 }
 
-#masterDiv{
+#pp-canvas{
   display: inline-block;
+  top-margin: 30px;
 }
 
 #paletteDiv{
@@ -48,5 +50,6 @@
 }
 
 h1{
-  margin: auto;
+  text-align: center;
+  margin-bottom: 40px;
 }
