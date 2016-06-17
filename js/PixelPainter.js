@@ -1,12 +1,27 @@
-var canvas = document.getElementById('pp-canvas');
+
 var colorArr = ['FF0000','FF6666','FF9999','FFCCCC','FF8000','FFB266','FFE5CC','FFFF00','FFFF66','FFFF99','FFFFCC','00CC00','33FF33','99FF99','0000CC','4C0099','7F00FF','9933FF','CC99FF','FF00FF','000000','404040','808080','C0C0C0','FFFFFF'];
-var colorPalette = document.getElementById('paletteDiv');
+
+var body = document.body;
+var masterDiv = document.createElement('div');
+masterDiv.id = 'masterDiv';
+body.appendChild(masterDiv);
+var colorPalette = document.createElement('div');
+colorPalette.id = 'paletteDiv';
+masterDiv.appendChild(colorPalette);
+var canvas = document.createElement('div');
+canvas.id = 'pp-canvas';
+masterDiv.appendChild(canvas);
+var eraseDiv = document.createElement('div');
+eraseDiv.id = 'eraseDiv';
+colorPalette.appendChild(eraseDiv);
+var clearDiv = document.createElement('div');
+clearDiv.id = 'clearDiv';
+colorPalette.appendChild(clearDiv);
+
+
+
 var selectedColor = '';
-
-var clearDiv = document.getElementById('clearDiv');
 clearDiv.innerHTML = 'Clear';
-
-var eraseDiv = document.getElementById('eraseDiv');
 eraseDiv.innerHTML = 'Erase';
 
 for( var i = 1; i <= 400; i++ ){
