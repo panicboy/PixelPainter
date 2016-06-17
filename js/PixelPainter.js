@@ -2,8 +2,10 @@ var canvas = document.getElementById('pp-canvas');
 var colorArr = ['red', 'orange', 'yellow','green','blue','violet','magenta'];
 var colorPalette = document.getElementById('paletteDiv');
 var selectedColor = '';
+
 var clearDiv = document.getElementById('clearDiv');
 clearDiv.innerHTML = 'Clear';
+
 var eraseDiv = document.getElementById('eraseDiv');
 eraseDiv.innerHTML = 'Erase';
 
@@ -45,6 +47,7 @@ eraseDiv.addEventListener('click', function(){
 
 clearDiv.addEventListener('click',function(){
   var allPixels = document.getElementsByClassName('pixels');
+  // document.getElementsByClassName('pixels').setAttribute(backgroundColor, 'white');
   for(var i = 0; i < allPixels.length; i++){
     allPixels[i].style.backgroundColor = 'white';
   }
