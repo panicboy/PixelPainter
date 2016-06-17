@@ -1,4 +1,4 @@
-function pixelPainter(){
+function pixelPainter(width, height){
 var colorArr = ['FF0000','FF6666','FF9999','FFCCCC',
 'FF8000','FFB266','FFE5CC','FFFF00','FFFF66','FFFF99'
 ,'FFFFCC','00CC00','33FF33','99FF99','0000CC','4C0099'
@@ -37,9 +37,9 @@ function setColor(){
 }
 
 
-for( var i = 1; i <= 400; i++ ){
+for( var i = 1; i <= (width * height); i++ ){
   var newPixel = document.createElement('div');
-  newPixel.className = 'pixels'
+  newPixel.className = 'pixels';
 
   canvas.appendChild(newPixel);
   //newPixel.addEventListener('mousedown', setColor);
@@ -57,7 +57,7 @@ for( var i = 1; i <= 400; i++ ){
       this.style.backgroundColor = selectedColor;
     }
   });
-  if( i % 20 === 0 ){
+  if( i % width === 0 ){
     var lineBreak = document.createElement('br');
     canvas.appendChild(lineBreak);
   }
@@ -105,4 +105,4 @@ function makeItBigger(){
     this.style.height = (parseFloat(this.style.height) + 1 ) + 'px';
   }
 }
-pixelPainter();
+pixelPainter(20, 20);
