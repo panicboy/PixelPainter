@@ -3,17 +3,17 @@
 /*  left: 50%;
   right: 50%;*/
   margin-left: 15%;
-
+  background-color: white;
 }
 
 .pixels{
   border-color: #c0c0c0;
   border-width: 1px;
   border-style: solid;
-  width: 20px;
+  /* width: 20px; */
   display: inline-block;
-  height:20px;
-  opacity: 0.5;
+
+  /* height:20px; */
 }
 
 .colors{
@@ -27,7 +27,6 @@
 #pp-canvas{
   display: inline-block;
   top-margin: 30px;
-
   width: 100%;
 }
 
@@ -44,18 +43,14 @@ h1{
 }
 
 .buttons{
-    border-style: solid;
+  border-style: solid;
   border-radius: 5px;
   border-width: 2px;
   text-align: center;
   margin-top: 5px;
+  background-color: white;
 }
 
 .buttons:hover{
   background-color: rgb(153, 204, 255);
-  opacity: 0.5;
-}
-
-body{
-  background-image: url(http://1.bp.blogspot.com/-IkQCh8uZb2I/UjwCmvORClI/AAAAAAAABJA/RMWWAiIHHTw/s1600/Painting-With-Melted-Crayons-Close-Up.JPG);
 }
