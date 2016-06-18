@@ -28,14 +28,14 @@ var eraseDiv = document.createElement('div');
 
 //buttons
 eraseDiv.id = 'eraseDiv';
-eraseDiv.className = 'buttons'
-colorPalette.appendChild(eraseDiv);
+eraseDiv.className = 'buttons';
 var clearDiv = document.createElement('div');
 clearDiv.id = 'clearDiv';
-clearDiv.className = 'buttons'
-colorPalette.appendChild(clearDiv);
+clearDiv.className = 'buttons';
 var erasing = false;
 var pixelSize = 20;
+var pixelId = 1;
+var swatchId = 1;
 
 
 var selectedColor = '';
@@ -45,7 +45,7 @@ eraseDiv.innerHTML = 'Erase';
 var holdDown = false;
 
 function selectColor(){
-  selectedColor = this.style.backgroundColor
+  selectedColor = this.style.backgroundColor;
 }
 
 function setColor(){
@@ -53,45 +53,17 @@ function setColor(){
 }
 
 
-// <<<<<<< HEAD
-// for( var i = 1; i <= (width * height); i++ ){
-//   var newPixel = document.createElement('div');
-//   newPixel.className = 'pixels';
-//   newPixel.style.backgroundColor = 'white';
-//   canvas.appendChild(newPixel);
-//   //newPixel.addEventListener('mousedown', setColor);
-
-//   //event listeners to change color when clicking
-//   newPixel.addEventListener('mousedown', function(){
-//     this.style.backgroundColor = selectedColor;
-//     this.style.opacity = 1.0;
-//     holdDown = true;
-//   });
-//   newPixel.addEventListener('mouseup', function(){
-//     holdDown = false;
-//   });
-//   newPixel.addEventListener('mouseenter', function(){
-//     if( holdDown === true ){
-//       this.style.backgroundColor = selectedColor;
-//       this.style.opacity = 1.0;
-//     } else if( erasing === true && holdDown === true ){
-//       this.style.backgroundColor = selectedColor;
-//       this.style.opacity = 0.5;
-//       console.log('hey listen');
-//     }
-//   });
-//   if( i % width === 0 ){
-//     var lineBreak = document.createElement('br');
-//     canvas.appendChild(lineBreak);
-// =======
 for(var y = 1; y <= height; y++ ){
   //create new row
   for(var x = 1; x <= width; x++) {
     var newPixel = document.createElement('div');
     newPixel.className = 'pixels';
-    newPixel.loc = {x, y};
+    newPixel.x = x;
+    newPixel.y = y;
+    newPixel.id = pixelId;
     newPixel.style.height = pixelSize + 'px';
     newPixel.style.width = pixelSize + 'px';
+    pixelId++;
     canvas.appendChild(newPixel);
 
     //event listeners to change color when clicking
@@ -121,14 +93,14 @@ for( var i = 0; i < colorArr.length; i++ ){
   erasing = false;
   var colorPixel = document.createElement('div');
   colorPixel.className = 'colors';
+  colorPixel.id = swatchId;
+  swatchId++;
   colorPixel.style.height = pixelSize * 1.5;
   colorPixel.style.width = pixelSize * 1.5;
   colorPixel.style.backgroundColor = colorArr[i];
   colorPalette.appendChild(colorPixel);
   colorPixel.addEventListener('click', selectColor);
 }
-
-
 colorPalette.appendChild(clearDiv);
 colorPalette.appendChild(eraseDiv);
 
@@ -136,21 +108,20 @@ eraseDiv.addEventListener('click', function(){
   erasing = true;
   selectedColor = 'transparent';
 
-})
+});
 
 clearDiv.addEventListener('click',function(){
   var allPixels = document.getElementsByClassName('pixels');
-  // document.getElementsByClassName('pixels').setAttribute(backgroundColor, 'white');
   for(var i = 0; i < allPixels.length; i++){
     allPixels[i].style.backgroundColor = 'transparent';
     holdDown = false;
     allPixels[i].style.opacity = 0.5;
   }
-})
+});
 
 function makeItBigger(){
-    this.style.width = (parseFloat(this.style.width) + 1) + 'px';
-    this.style.height = (parseFloat(this.style.height) + 1 ) + 'px';
+    this.style.width = (parseFloat(this.style.width) + 5) + 'px';
+    this.style.height = (parseFloat(this.style.height) + 5) + 'px';
   }
 }
 
