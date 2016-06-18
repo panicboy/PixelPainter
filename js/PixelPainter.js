@@ -36,6 +36,9 @@ clearDiv.className = 'buttons'
 colorPalette.appendChild(clearDiv);
 var erasing = false;
 var pixelSize = 20;
+var preview = document.createElement('div');
+preview.id = 'preview';
+
 
 
 var selectedColor = '';
@@ -126,11 +129,15 @@ for( var i = 0; i < colorArr.length; i++ ){
   colorPixel.style.backgroundColor = colorArr[i];
   colorPalette.appendChild(colorPixel);
   colorPixel.addEventListener('click', selectColor);
+  colorPixel.addEventListener('click', function(){
+    document.getElementById('preview').style.backgroundColor = selectedColor;
+  })
 }
 
 
 colorPalette.appendChild(clearDiv);
 colorPalette.appendChild(eraseDiv);
+colorPalette.appendChild(preview);
 
 eraseDiv.addEventListener('click', function(){
   erasing = true;
@@ -144,7 +151,6 @@ clearDiv.addEventListener('click',function(){
   for(var i = 0; i < allPixels.length; i++){
     allPixels[i].style.backgroundColor = 'transparent';
     holdDown = false;
-    allPixels[i].style.opacity = 0.5;
   }
 })
 
@@ -154,5 +160,5 @@ function makeItBigger(){
   }
 }
 
-pixelPainter(12, 10);
+pixelPainter(20 , 20);
 
