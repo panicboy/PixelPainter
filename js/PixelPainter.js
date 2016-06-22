@@ -40,7 +40,9 @@ preview.id = 'preview';
 var lineBreak = document.createElement('br');
 var pixelId = 1;
 var swatchId = 1;
-
+var statusText1 = String;
+var statusText2 = String;
+var nextActionText = String;
 
 
 var selectedColor = '';
@@ -50,7 +52,8 @@ eraseDiv.innerHTML = 'Erase';
 var holdDown = false;
 
 function selectColor(){
-  selectedColor = this.style.backgroundColor;
+  //selectedColor = this.style.backgroundColor;
+  selectedColor = this.id;
 }
 
 function setColor(){
@@ -91,6 +94,22 @@ for(var y = 1; y <= height; y++ ){
   appendLinebreak(canvas);
 }
 
+var statusDiv1 = document.createElement('div');
+statusDiv1.id = 'statusDiv1';
+statusDiv1.className = 'statusdisplay';
+statusDiv1.innerHTML = '1';
+canvas.appendChild(statusDiv1);
+var statusDiv2 = document.createElement('div');
+statusDiv2.id = 'statusDiv2';
+statusDiv2.innerHTML = '2';
+statusDiv2.className = 'statusdisplay';
+canvas.appendChild(statusDiv2);
+var actionDiv = document.createElement('div');
+actionDiv.id = 'actionDiv';
+actionDiv.innerHTML = 'x';
+actionDiv.className = 'statusdisplay';
+canvas.appendChild(actionDiv);
+
 for( var i = 0; i < colorArr.length; i++ ){
   if( i % 9 === 0){
     appendLinebreak(paletteDiv);
@@ -106,6 +125,8 @@ for( var i = 0; i < colorArr.length; i++ ){
     let previewSwatch = document.getElementById('preview');
     previewSwatch.style.backgroundColor = selectedColor;
     previewSwatch.innerHTML = this.id;
+    let actionDiv = document.getElementById('actionDiv');
+    actionDiv.innerHTML = 'paint mode';
   });
 }
 colorPalette.appendChild(clearDiv);
@@ -115,6 +136,8 @@ colorPalette.appendChild(preview);
 eraseDiv.addEventListener('click', function(){
   erasing = true;
   selectedColor = 'transparent';
+  let actionDiv = document.getElementById('actionDiv');
+  actionDiv.innerHTML = 'erase mode';
 
 });
 

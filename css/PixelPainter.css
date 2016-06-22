@@ -55,6 +55,15 @@ h1{
   background-color: rgb(153, 204, 255);
 }
 
+.statusdisplay:hover{
+  background-color: rgb(153, 204, 255);
+}
+
+.statusdisplay{
+  height: 25px;
+  color: black;
+}
+
 #preview{
   border-style: solid;
   border-width: 2px;
