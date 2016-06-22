@@ -15,14 +15,17 @@ body.appendChild(masterDiv);
 var colorPalette = document.createElement('div');
 colorPalette.id = 'paletteDiv';
 masterDiv.appendChild(colorPalette);
-var canvas = document.createElement('div');
 
 //canvas
+var canvas = document.createElement('div');
 canvas.id = 'canvas';
+canvas.addEventListener('mouseup', function(){
+  holdDown = false;
+});
 masterDiv.appendChild(canvas);
-var eraseDiv = document.createElement('div');
 
 //buttons
+var eraseDiv = document.createElement('div');
 eraseDiv.id = 'eraseDiv';
 eraseDiv.className = 'buttons';
 var clearDiv = document.createElement('div');
@@ -34,7 +37,7 @@ var pixelSize = 20;
 var preview = document.createElement('div');
 preview.id = 'preview';
 
-
+var lineBreak = document.createElement('br');
 var pixelId = 1;
 var swatchId = 1;
 
@@ -70,39 +73,40 @@ for(var y = 1; y <= height; y++ ){
 
     //event listeners to change color when clicking
     newPixel.addEventListener('mousedown', function(){
-      this.style.backgroundColor = selectedColor;
+      //only change color if selected color is different
+      if(this.style.backgroundColor !== selectedColor){
+        this.style.backgroundColor = selectedColor;
+      }
       holdDown = true;
     });
-    newPixel.addEventListener('mouseup', function(){
-      holdDown = false;
-    });
     newPixel.addEventListener('mouseenter', function(){
-      if( holdDown === true ){
-        this.style.backgroundColor = selectedColor;
+      if(holdDown){
+        if(this.style.backgroundColor !== selectedColor){
+          this.style.backgroundColor = selectedColor;
+        }
       }
     });
   }
   //new row created
-  var lineBreak = document.createElement('br');
-  canvas.appendChild(lineBreak);
+  appendLinebreak(canvas);
 }
 
 for( var i = 0; i < colorArr.length; i++ ){
   if( i % 9 === 0){
-    var lineBreak = document.createElement('br');
-    paletteDiv.appendChild(lineBreak);
+    appendLinebreak(paletteDiv);
   }
   erasing = false;
   var colorPixel = document.createElement('div');
   colorPixel.className = 'colors';
-  colorPixel.id = swatchId;
-  swatchId++;
   colorPixel.style.backgroundColor = colorArr[i];
+  colorPixel.id = colorArr[i];
   colorPalette.appendChild(colorPixel);
   colorPixel.addEventListener('click', selectColor);
   colorPixel.addEventListener('click', function(){
-    document.getElementById('preview').style.backgroundColor = selectedColor;
-  })
+    let previewSwatch = document.getElementById('preview');
+    previewSwatch.style.backgroundColor = selectedColor;
+    previewSwatch.innerHTML = this.id;
+  });
 }
 colorPalette.appendChild(clearDiv);
 colorPalette.appendChild(eraseDiv);
@@ -122,11 +126,13 @@ clearDiv.addEventListener('click',function(){
   }
 });
 
-function makeItBigger(){
-    this.style.width = (parseFloat(this.style.width) + 5) + 'px';
-    this.style.height = (parseFloat(this.style.height) + 5) + 'px';
+function appendLinebreak(theElement){
+    var lineBreak = document.createElement('br');
+    theElement.appendChild(lineBreak);
   }
 }
 
-pixelPainter(20 , 20);
 
+
+
+pixelPainter(32, 16);
